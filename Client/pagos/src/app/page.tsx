@@ -1,6 +1,5 @@
 'use client'
 
-
 import { FormEvent, useEffect, useState } from "react";
 import { Socket, io } from "socket.io-client";
 import { toast } from "react-toastify";
@@ -26,7 +25,7 @@ export default function Home() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/pagos", {
+    const response = await fetch("http://34.198.106.93:3000/pagos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +40,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!socket) {
-      const newSocket = io("http://localhost:3005");
+      const newSocket = io("http://34.198.106.93:3005");
       newSocket.on("payment-processed", (pago) => {
         console.log(pago);
         setFacturaInfo(pago);
