@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch("http://34.199.77.210:3000/pagos", {
+    const response = await fetch("http://54.237.83.120:3000/pagos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Home(): JSX.Element {
 
   useEffect(() => {
     if (!socket) {
-      const newSocket = io("http://34.199.77.210:3005");
+      const newSocket = io("https://ws-5u2i.onrender.com");
       newSocket.on("payment-processed", (pago: FacturaInfo) => {
         console.log(pago);
         setFacturaInfo(pago);
